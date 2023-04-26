@@ -5,86 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-
-        <Style TargetType="TextBlock" x:Key="TBStyle">
-            <Setter Property="FontSize" Value="17"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="Margin" Value="0 1.5"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Hinting"></Setter>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-        </Style>
-
-    </Window.Resources>
-
-    <StackPanel x:Name="stackPanel">
-        <WrapPanel Grid.ColumnSpan="3" Orientation="Horizontal">
-            <StackPanel Orientation="Horizontal"  Margin="5">
-                <TextBlock Text="Поиск:"  Margin="5"/>
-                <TextBox x:Name="SearchBox" Text="" Width="100" Margin="5" Background="White" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Выберите производителя:" Margin="5" VerticalAlignment="Center"/>
-                <ComboBox Width="150" Height="25" Name="Filtr" DisplayMemberPath="Name"></ComboBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Сортировать по:"  Margin="5" VerticalAlignment="Center"/>
-                <ComboBox Width="150" Height="25" Name="Sortir">
-                    <ComboBoxItem>по умолчанию</ComboBoxItem>
-                    <ComboBoxItem>цене по Возрастанию</ComboBoxItem>
-                    <ComboBoxItem>цене по убыванию</ComboBoxItem>
-                </ComboBox>
-            </StackPanel>
-        </WrapPanel>
-        <ListView x:Name="LVProduct"
-                  d:ItemsSource="{d:SampleData ItemCount=5}"
-                  BorderThickness="0"
-                  Height="403">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border x:Name="border" BorderBrush="Black"
-                            BorderThickness="1"
-                            Padding="10 14"
-                            Width="792">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="206"/>
-                                <ColumnDefinition Width="390"/>
-                                <ColumnDefinition Width="199"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="150"/>
-                            </Grid.RowDefinitions>
-
-                            <Image Source="{Binding MainImage}"/>
-
-                            <StackPanel Grid.Column="1"
-                                        VerticalAlignment="Center">
-                                <TextBlock Text="{Binding FullName}"
-                                               Style="{StaticResource TBStyle}"
-                                               FontWeight="Bold"/>
-                                <TextBlock Text="10 продаж за год"
-                                               Style="{StaticResource TBStyle}"
-                                               TextTrimming="CharacterEllipsis"
-                                               MaxHeight="40"/>
-                                <TextBlock Text="{Binding Phone}"
-                                               Style="{StaticResource TBStyle}"/>
-                                <TextBlock Text="{Binding Priority, StringFormat='Приоритетность: {0}'}"
-                                                   Style="{StaticResource TBStyle}"/>
-                            </StackPanel>
-
-                            <TextBlock Text="10%"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       FontSize="20"
-                                       Grid.Column="2"
-                                       Style="{StaticResource TBStyle}"/>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackPanel>
+        Title="MainWindow" Height="450" Width="800"
+        ResizeMode="NoResize">
+    <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+    </Grid>
 </Window>
